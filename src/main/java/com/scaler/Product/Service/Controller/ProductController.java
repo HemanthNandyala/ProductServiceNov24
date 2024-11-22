@@ -25,9 +25,5 @@ public class ProductController {
         return new ResponseEntity<>(product, HttpStatusCode.valueOf(200) );
     }
 
-    @ExceptionHandler(ProductNotFoundException.class)
-    public ResponseEntity<String> getProductNotFoundException(ProductNotFoundException e){
-        return new ResponseEntity<>(e.getMessage(),HttpStatusCode.valueOf(400));
 
-    }
 }

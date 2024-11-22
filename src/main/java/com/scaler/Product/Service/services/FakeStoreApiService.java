@@ -14,7 +14,7 @@ public class FakeStoreApiService implements ProductInterface{
         RestTemplate restTemplate = new RestTemplate();
         FakeStoreDTO fakeStoreDTO =  restTemplate.getForObject(url, FakeStoreDTO.class);
         if(fakeStoreDTO == null){
-            throw new ProductNotFoundException("The product with id"  + id + " is not found");
+            throw new ProductNotFoundException("The product with id "  + id + " is not found");
         }
         return convertFakeStoreDTOtoProduct(fakeStoreDTO);
     }

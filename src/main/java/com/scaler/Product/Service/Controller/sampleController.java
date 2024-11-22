@@ -1,5 +1,6 @@
 package com.scaler.Product.Service.Controller;
 
+import com.scaler.Product.Service.Exception.ProductNotFoundException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +15,10 @@ public class sampleController {
     }
     // End point GET  /hello/{name}
     @GetMapping("/hello/{name}")
-    public String helloName(@PathVariable("name")String name){
+    public String helloName(@PathVariable("name")String name) throws ProductNotFoundException {
+        if(name.equals("HemanthNandyala")){
+            throw new ProductNotFoundException("Hemanth Nandyala Not found");
+        }
         return "hello" + name;
     }
 
